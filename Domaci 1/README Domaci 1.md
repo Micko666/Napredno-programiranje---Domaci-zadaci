@@ -21,7 +21,7 @@ Implementirana je funkcija prosjecna_cijena koja cita rezervacije iz CSV fajla i
 ### Uoceni problemi i ispravke
 - Python nije pronalazio modul zbog pogresnog radnog direktorijuma.
 - CSV fajl je imao prazan prvi red, sto je izazvalo KeyError.
-- Ispravljen je csv fajl i funkcija je uspjesno izvrsena.
+- Ispravljen je CSV fajl i funkcija je uspjesno izvrsena.
 
 ### Testiranje
 python -m pytest -q
