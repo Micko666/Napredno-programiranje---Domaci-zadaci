@@ -45,9 +45,12 @@ Pri push-u ili pull request-u automatski se pokreću Ruff, mypy i pytest za ovaj
 
 ## Rezultati provjera
 
-- pytest: napisano 12 testova; rezultat provjeriti u CI-u.
-- Ruff, mypy, Bandit, pip-audit: potrebno pokrenuti i upisati stvarne rezultate.
-- GitHub Actions: provjeriti rezultat u tabu Actions.
+- pytest: svih 12 testova uspješno prošlo (jedno upozorenje o zastarijevanju httpx podrške u TestClient-u).
+- Ruff: prvobitno je prijavio grešku I001 u importima. Nakon dodavanja praznog reda između importa, provjera je prošla.
+- mypy: nema grešaka u main.py.
+- Bandit: nije pronašao bezbjednosne propuste u main.py.
+- pip-audit: prva provjera zajedničkog Python okruženja prijavila je 407 nalaza u 33 paketa, uključujući biblioteke drugih projekata i zastarjele zavisnosti API-ja. Kreirano je zasebno virtuelno okruženje i instalirane potrebne biblioteke. Ponovna provjera: No known vulnerabilities found.
+- GitHub Actions: [uspješan CI run](https://github.com/Micko666/Napredno-programiranje---Domaci-zadaci/actions/runs/46137920064).
 
 ## Korišćenje AI alata
 
