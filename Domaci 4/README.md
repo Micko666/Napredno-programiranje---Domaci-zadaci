@@ -17,7 +17,8 @@ Pydantic provjerava da je broj noćenja od 1 do 30, cijena veća od 0 i najviše
 
 ## Pokretanje i testiranje
 
-python -m pip install -r requirements.txt
+```bash
+python -m pip install fastapi pydantic uvicorn httpx pytest ruff mypy bandit pip-audit
 python -m uvicorn main:app --reload
 
 python -m pytest -q
@@ -25,6 +26,7 @@ ruff check .
 mypy main.py
 bandit main.py
 pip-audit
+```
 
 Napisano je 12 testova koji provjeravaju oba endpointa, obračun sa i bez popusta, granične vrijednosti i neispravne unose. TestClient omogućava testiranje bez pokretanja servera. Ispravni zahtjevi vraćaju status 200, a testirani neispravni unosi 422.
 
@@ -35,6 +37,7 @@ Pri push-u ili pull request-u automatski se pokreću Ruff, mypy i pytest za ovaj
 ## Bezbjednosni rizici
 
 | Rizik | Mjera smanjenja |
+| --- | --- |
 | Neispravni i ekstremni unosi | Pydantic validacija tipova i opsega. |
 | Ranjive biblioteke | Provjera pomoću pip-audit i ažuriranje ranjivih paketa. |
 | Tajne u kodu | API nema ključeve ni lozinke; ako se uvedu, čuvati ih u varijablama okruženja. |
@@ -42,9 +45,9 @@ Pri push-u ili pull request-u automatski se pokreću Ruff, mypy i pytest za ovaj
 
 ## Rezultati provjera
 
-- pytest: 12 testova uspješno prošlo u okruženju pripreme rješenja.
+- pytest: napisano 12 testova; rezultat provjeriti u CI-u.
 - Ruff, mypy, Bandit, pip-audit: potrebno pokrenuti i upisati stvarne rezultate.
-- GitHub Actions: potrebno pokrenuti nakon push-a.
+- GitHub Actions: provjeriti rezultat u tabu Actions.
 
 ## Korišćenje AI alata
 
